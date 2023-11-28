@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "version": "0.0.1",
+    "name": "Hi Hacks v1",
+    "description": "Plugin com algumas ações cotidianas da Hi Platform",
+    "author": "William Weidgenand",
+    "permissions": [
+      "storage"
+    ],
+    "action": {
+      "default_popup": "../templates/index.html",
+      "default_icon": "hiplatform.png"
+    }
+  }
