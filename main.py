@@ -6,6 +6,8 @@ app = Flask(__name__, static_url_path='/static')
 def main():
    return "Online"
 
+
+# coment
 @app.route('/homepage')
 def homepage():
     return render_template('index.html')
