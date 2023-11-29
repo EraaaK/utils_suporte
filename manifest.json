@@ -8,7 +8,7 @@
       "storage"
     ],
     "action": {
-      "default_popup": "../templates/index.html",
+      "default_popup": "../init_page/init_page.html",
       "default_icon": "hiplatform.png"
     }
   }

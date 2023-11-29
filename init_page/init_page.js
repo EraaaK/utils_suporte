@@ -1,0 +1,1 @@
+window.open("../templates/index.html", "_blank");
