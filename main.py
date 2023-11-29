@@ -2,6 +2,10 @@ from flask import Flask, make_response, request, render_template, redirect, url_
 
 app = Flask(__name__, static_url_path='/static')
 
+@app.route('/')
+def main():
+   return "Online"
+
 @app.route('/homepage')
 def homepage():
     return render_template('index.html')

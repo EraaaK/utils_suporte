@@ -200,15 +200,6 @@ document.getElementById("btn-collapse").addEventListener("click", () => {
 });
 
 /**
- * sidebar toggle handler (on break point )
- */
-document.getElementById("btn-toggle").addEventListener("click", () => {
-  SIDEBAR_EL.classList.toggle("toggled");
-
-  updatePoppersTimeout();
-});
-
-/**
  * toggle sidebar on overlay click
  */
 document.getElementById("overlay").addEventListener("click", () => {
