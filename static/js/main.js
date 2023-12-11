@@ -20,10 +20,3 @@ menuTitles.forEach(function (menuTitle) {
         }
     });
 });
-
-
-function getArticles(category) {
-    $.get('' + category, function(data) {
-        console.log(data);
-    });
-}
