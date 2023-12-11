@@ -25,12 +25,14 @@ menuTitles.forEach(function (menuTitle) {
 });
 
 async function getArticles(categoryName) {
+  $('#loadingModal').modal('show');
  const response = await $.ajax({
    url: "https://utilssuporte.tn-russo.repl.co/articles?category=" + categoryName,
    type: 'GET',
    dataType: 'json'
  });
   articles = response;
+  $('#loadingModal').modal('hide');
   return articles;
 }
 
@@ -50,7 +52,7 @@ function renderArticles(category) {
      <div class="accordion-item">
        <h2 class="accordion-header" id="heading${i}">
          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
-           ${articles[i].title}
+           <strong>${articles[i].title}</strong>
          </button>
        </h2>
        <div id="collapse${i}" class="accordion-collapse collapse" data-bs-parent="#accordion${i}">
@@ -64,3 +66,10 @@ function renderArticles(category) {
    }
   mainDiv.innerHTML = accordionHTML;
 }
+
+$(function () {
+  $('.newArticleButton').tooltip({
+      placement: 'right'
+  })
+})
+

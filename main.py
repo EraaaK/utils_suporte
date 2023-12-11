@@ -1,7 +1,8 @@
-from flask import Flask, make_response, request, render_template
+from flask import Flask, make_response, request, render_template, send_from_directory
 from controller import services as function
 import requests as rq
 import json
+import os
 
 app = Flask(__name__, static_url_path='/static')
 
