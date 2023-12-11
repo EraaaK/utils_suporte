@@ -1,6 +1,15 @@
 var menuTitles = document.querySelectorAll('.menu-item > a > .menu-title');
 var articles = undefined;
 
+$(document).ready(function(){
+  $(".newArticleButton").hover(function() {
+    $(this).css('cursor', 'pointer');
+   });
+  $(".newArticleButton").click(function() {
+    $('#newArticleModal').modal('show');
+  });
+});
+
 menuTitles.forEach(function (menuTitle) {
     menuTitle.addEventListener('click', function () {
         switch (this.innerText) {

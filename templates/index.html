@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
@@ -30,7 +31,11 @@
         <div class="sidebar-content">
           <nav class="menu open-current-submenu">
             <ul>
-              <li class="menu-header"><span> MENU </span></li>
+              <li class="menu-header"><span> MENU </span>
+                <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
+                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
+                </svg>
+              </li>
               <li class="menu-item sub-menu">
                 <a href="#">
                   <span class="menu-icon">
@@ -43,25 +48,16 @@
                     <li class="menu-item">
                       <a href="#">
                         <span class="menu-title">Hi Inbox</span>
-                        <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                        </svg>
                       </a>
                     </li>
                     <li class="menu-item">
                       <a href="#">
                         <span class="menu-title">Hi Social</span>
-                        <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                        </svg>
                       </a>
                     </li>
                     <li class="menu-item">
                       <a href="#">
                         <span class="menu-title">Hi Flow</span>
-                        <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                        </svg>
                       </a>
                     </li>
                     <li class="menu-item sub-menu">
@@ -73,41 +69,26 @@
                           <li class="menu-item">
                             <a href="#">
                               <span class="menu-title">Hi Bot</span>
-                              <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                              </svg>
                             </a>
                           </li>
                           <li class="menu-item">
                             <a href="#">
                               <span class="menu-title">Hi Chat</span>
-                              <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                              </svg>
                             </a>
                           </li>
                           <li class="menu-item">
                             <a href="#">
                               <span class="menu-title">Hi FAQ</span>
-                              <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                              </svg>
                             </a>
                           </li>
                           <li class="menu-item">
                             <a href="#">
                               <span class="menu-title">Hi Phone</span>
-                              <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                              </svg>
                             </a>
                           </li>
                           <li class="menu-item">
                             <a href="#">
                               <span class="menu-title">Hi Mail</span>
-                              <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                              </svg>
                             </a>
                           </li>
                         </ul>
@@ -122,17 +103,11 @@
                           <li class="menu-item">
                             <a href="#">
                               <span class="menu-title">Reviews</span>
-                              <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                              </svg>
                             </a>
                           </li>
                           <li class="menu-item">
                             <a href="#">
                               <span class="menu-title">Voices</span>
-                              <svg class="newArticleButton" data-toggle="tooltip" title="Criar novo artigo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="25" viewBox="0,0,256,256">
-                              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M44,24c0,11 -9,20 -20,20c-11,0 -20,-9 -20,-20c0,-11 9,-20 20,-20c11,0 20,9 20,20z" fill="#1e7bc8"></path><path d="M21,14h6v20h-6z" fill="#ffffff"></path><path d="M14,21h20v6h-20z" fill="#ffffff"></path></g></g>
-                              </svg>
                             </a>
                           </li>
                         </ul>
@@ -217,6 +192,30 @@
           <div class="modal-content">
               <div class="modal-body text-center">
                   <h4 id="loadingModalLabel">Aguarde</h4>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="newArticleModal" tabindex="-1" role="dialog" aria-labelledby="newArticleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-body text-center">
+                <form class="newArticleForm">
+                  <select id="categorySelect" class="form-select" aria-label="categorySelect">
+                    <option selected>Selecione uma categoria</option>
+                    <option value="1">Hi Inbox</option>
+                    <option value="2">Hi Social</option>
+                    <option value="3">Hi Flow</option>
+                  </select>
+                  <div id="articleTitle" class="input-group mb-3">
+                    <span class="input-group-text" id="articleTitle"></span>
+                    <input type="text" class="form-control" placeholder="Descrição" aria-label="title" aria-describedby="articleTitle">
+                  </div>
+                  <div id="articleContent" class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Conteúdo" aria-label="content" aria-describedby="articleContent">
+                  </div>
+                  <input type="submit" class="btn btn-success" value="Criar">
+                </form>
               </div>
           </div>
       </div>

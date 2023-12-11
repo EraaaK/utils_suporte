@@ -1,3 +1,4 @@
+
 .layout {
   z-index: 1;
 }
@@ -516,6 +517,10 @@ a {
   background-color: #d6f4ff !important;
 }
 
-.content{
+.content, layout{
   background-color: #a4baea;
+}
+
+#categorySelect, #articleContent {
+  margin: 2% 0 3.2% 0;
 }
