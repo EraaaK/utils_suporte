@@ -1,4 +1,5 @@
 from flask import Flask, make_response, request, render_template, redirect, url_for, flash, jsonify, send_file, Response
+from services import controller as function
 import requests as rq
 
 app = Flask(__name__, static_url_path='/static')
@@ -15,10 +16,11 @@ def homepage():
 def getArticles():
   articles = []
   selectedCategory = request.args.get('category')
-  url = "https://faq.directtalk.com.br/1.0/api/article/department/summary?id=1f0cf10b-f3e4-462e-88fe-61a461385d4b&filterActiveArticles=true&skip=0&count=10&orderBy=1"
+  fenixToken = function.GetFenixToken()
+  url = "https://faq.directtalk.com.br/1.0/api/article/department/summary?id=1f0cf10b-f3e4-462e-88fe-61a461385d4b&filterActiveArticles=true&skip=0&count=9999&orderBy=1"
   payload = {}
   headers = {
-  'Authorization': 'DT-Fenix-Token P01_swsznwAJNFUzK2bqhsvt6ZRAciXRpEw1_43926_904'
+  'Authorization': 'DT-Fenix-Token ' + fenixToken['token']
 }
   response = rq.request("GET", url, headers=headers, data=payload)
   response = response.json()
