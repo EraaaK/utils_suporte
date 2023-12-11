@@ -508,7 +508,14 @@ a {
   display: none;
 }
 
-.content{
-  background-color: #c9cbce;
+.accordion-button {
+  background-color: #b4eaff !important;
 }
 
+.accordion-body {
+  background-color: #d6f4ff !important;
+}
+
+.content{
+  background-color: #a4baea;
+}
