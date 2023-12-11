@@ -1,6 +1,7 @@
-from flask import Flask, make_response, request, render_template, redirect, url_for, flash, jsonify, send_file, Response
-from services import controller as function
+from flask import Flask, make_response, request, render_template
+from controller import services as function
 import requests as rq
+import json
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -12,7 +13,7 @@ def main():
 def homepage():
     return render_template('index.html')
 
-@app.route('/getarticles')
+@app.route('/articles')
 def getArticles():
   articles = []
   selectedCategory = request.args.get('category')
@@ -32,6 +33,7 @@ def getArticles():
         "content": response['items'][i]['answer']
      }
       articles.append(article)
+  articles = json.dumps(articles)
   return articles
 
 if __name__ == "__main__":
