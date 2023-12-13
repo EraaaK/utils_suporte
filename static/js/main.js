@@ -282,7 +282,10 @@ function renderArticles(category) {
     dataType: "json",
     contentType : "application/json"
   });
-  location.reload(true);
+  $('#newArticleModal').modal('hide');
+  const toastLive = document.getElementById('liveToast')
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive)
+  toastBootstrap.show()
  });
  
  
