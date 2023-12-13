@@ -20,16 +20,160 @@ menuTitles.forEach(function (menuTitle) {
     menuTitle.addEventListener('click', function () {
         switch (this.innerText) {
             case "Hi Inbox":
-                $('.inbox').show();
-                $('.social').hide();
+              $('.inbox').show();
+              $('.social').hide();
+              $('.flow').hide();
+              $('.bot').hide();
+              $('.chat').hide();
+              $('.faq').hide();
+              $('.phone').hide();
+              $('.mail').hide();
+              $('.reviews').hide();
+              $('.voices').hide();
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Hi Social":
-                $('.inbox').hide();
-                $('.social').show();
+              $('.inbox').hide();
+              $('.social').show();
+              $('.flow').hide();
+              $('.bot').hide();
+              $('.chat').hide();
+              $('.faq').hide();
+              $('.phone').hide();
+              $('.mail').hide();
+              $('.reviews').hide();
+              $('.voices').hide();
+                getArticles(this.innerText)
+                .then(res => {
+                renderArticles(this.innerText);
+                });
+                break;
+            case "Hi Flow":
+              $('.inbox').hide();
+              $('.social').hide();
+              $('.flow').show();
+              $('.bot').hide();
+              $('.chat').hide();
+              $('.faq').hide();
+              $('.phone').hide();
+              $('.mail').hide();
+              $('.reviews').hide();
+              $('.voices').hide();
+                getArticles(this.innerText)
+                .then(res => {
+                renderArticles(this.innerText);
+                });
+                break;
+            case "Hi Bot":
+              $('.inbox').hide();
+              $('.social').hide();
+              $('.flow').hide();
+              $('.bot').show();
+              $('.chat').hide();
+              $('.faq').hide();
+              $('.phone').hide();
+              $('.mail').hide();
+              $('.reviews').hide();
+              $('.voices').hide();
+                getArticles(this.innerText)
+                .then(res => {
+                renderArticles(this.innerText);
+                });
+                break;
+            case "Hi Chat":
+              $('.inbox').hide();
+              $('.social').hide();
+              $('.flow').hide();
+              $('.bot').hide();
+              $('.chat').show();
+              $('.faq').hide();
+              $('.phone').hide();
+              $('.mail').hide();
+              $('.reviews').hide();
+              $('.voices').hide();
+                getArticles(this.innerText)
+                .then(res => {
+                renderArticles(this.innerText);
+                });
+                break;
+            case "Hi FAQ":
+              $('.inbox').hide();
+              $('.social').hide();
+              $('.flow').hide();
+              $('.bot').hide();
+              $('.chat').hide();
+              $('.faq').show();
+              $('.phone').hide();
+              $('.mail').hide();
+              $('.reviews').hide();
+              $('.voices').hide();
+                getArticles(this.innerText)
+                .then(res => {
+                renderArticles(this.innerText);
+                });
+                break;
+            case "Hi Phone":
+              $('.inbox').hide();
+              $('.social').hide();
+              $('.flow').hide();
+              $('.bot').hide();
+              $('.chat').hide();
+              $('.faq').hide();
+              $('.phone').show();
+              $('.mail').hide();
+              $('.reviews').hide();
+              $('.voices').hide();
+                getArticles(this.innerText)
+                .then(res => {
+                renderArticles(this.innerText);
+                });
+                break;
+            case "Hi Mail":
+              $('.inbox').hide();
+              $('.social').hide();
+              $('.flow').hide();
+              $('.bot').hide();
+              $('.chat').hide();
+              $('.faq').hide();
+              $('.phone').hide();
+              $('.mail').show();
+              $('.reviews').hide();
+              $('.voices').hide();
+                getArticles(this.innerText)
+                .then(res => {
+                renderArticles(this.innerText);
+                });
+                break;
+            case "Reviews":
+              $('.inbox').hide();
+              $('.social').hide();
+              $('.flow').hide();
+              $('.bot').hide();
+              $('.chat').hide();
+              $('.faq').hide();
+              $('.phone').hide();
+              $('.mail').hide();
+              $('.reviews').show();
+              $('.voices').hide();
+                getArticles(this.innerText)
+                .then(res => {
+                renderArticles(this.innerText);
+                });
+                break;
+            case "Voices":
+              $('.inbox').hide();
+              $('.social').hide();
+              $('.flow').hide();
+              $('.bot').hide();
+              $('.chat').hide();
+              $('.faq').hide();
+              $('.phone').hide();
+              $('.mail').hide();
+              $('.reviews').hide();
+              $('.voices').show();
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
@@ -75,6 +219,30 @@ function renderArticles(category) {
       break;
     case "Hi Social":
       var mainDiv = document.querySelector('.social');
+      break;
+    case "Hi Flow":
+      var mainDiv = document.querySelector('.flow');
+      break;
+    case "Hi Bot":
+      var mainDiv = document.querySelector('.bot');
+      break;
+    case "Hi Chat":
+      var mainDiv = document.querySelector('.chat');
+      break;
+    case "Hi FAQ":
+      var mainDiv = document.querySelector('.faq');
+      break;
+    case "Hi Phone":
+      var mainDiv = document.querySelector('.phone');
+      break;
+    case "Hi Mail":
+      var mainDiv = document.querySelector('.mail');
+      break;
+    case "Reviews":
+      var mainDiv = document.querySelector('.reviews');
+      break;
+    case "Voices":
+      var mainDiv = document.querySelector('.voices');
       break;
   }
   var accordionHTML = '';
