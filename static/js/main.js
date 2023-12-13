@@ -1,5 +1,20 @@
 var menuTitles = document.querySelectorAll('.menu-item > a > .menu-title');
+var CategorySelect = document.getElementById('categorySelect');
 var articles = undefined;
+var categories = undefined;
+
+$(function () {
+  $('.newArticleButton').tooltip({
+      placement: 'right'
+  })
+  getCategories()
+  $(".newArticleButton").hover(function() {
+    $(this).css('cursor', 'pointer');
+   });
+  $(".newArticleButton").click(function() {
+    $('#newArticleModal').modal('show');
+  });  
+})
 
 menuTitles.forEach(function (menuTitle) {
     menuTitle.addEventListener('click', function () {
@@ -27,13 +42,30 @@ menuTitles.forEach(function (menuTitle) {
 async function getArticles(categoryName) {
   $('#loadingModal').modal('show');
  const response = await $.ajax({
-   url: "https://utilssuporte.tn-russo.repl.co/articles?category=" + categoryName,
+   url: "http://127.0.0.1:8080/articles?category=" + categoryName,
    type: 'GET',
    dataType: 'json'
  });
   articles = response;
   $('#loadingModal').modal('hide');
   return articles;
+}
+
+async function getCategories() {
+ const response = await $.ajax({
+   url: "http://127.0.0.1:8080/categories",
+   type: 'GET',
+   dataType: 'json'
+ });
+  categories = response;
+  for (var i = 0; i < categories.length;i++){
+    var option = document.createElement("option");
+    option.value = categories[i].id;
+    option.text = categories[i].name;
+    option.setAttribute("name", categories[i].name)
+    CategorySelect.appendChild(option);
+  }
+  return categories;
 }
 
 function renderArticles(category) {
@@ -66,10 +98,23 @@ function renderArticles(category) {
    }
   mainDiv.innerHTML = accordionHTML;
 }
-
-$(function () {
-  $('.newArticleButton').tooltip({
-      placement: 'right'
-  })
-})
-
+ $('#newArticleForm').on('submit', function(e) {
+  e.preventDefault();
+  let newArticle = {
+    "categoryId": $('#categorySelect').find(':selected').attr('value'),
+    "categoryName": $('#categorySelect').find(':selected').attr('name'),
+    "title": document.getElementById('articleTitle').value,
+    "message": document.getElementById('message').value
+  };
+  console.log(newArticle);
+  $.ajax({
+    type: "POST",
+    url: $(this).attr('action'),
+    data: JSON.stringify(newArticle),
+    dataType: "json",
+    contentType : "application/json"
+  });
+  location.reload(true);
+ });
+ 
+ 

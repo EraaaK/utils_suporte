@@ -1,10 +1,12 @@
-from flask import Flask, make_response, request, render_template, send_from_directory
+from flask import Flask, make_response, request, render_template, send_from_directory, jsonify
 from controller import services as function
 import requests as rq
 import json
 import os
 
 app = Flask(__name__, static_url_path='/static')
+
+global categories
 
 @app.route('/')
 def main():
@@ -56,7 +58,55 @@ def getCategories():
       categories.append(category)
    categories = json.dumps(categories)
    return categories
-   
 
+@app.route("/newarticle", methods=['POST'])
+def newArticle():
+   fenixToken = function.GetFenixToken()
+   article = request.get_json()
+   url = "https://www3.directtalk.com.br/adminuiservices/api/Proxy"
+   payload = json.dumps({
+  "serviceName": "dtfaq",
+  "qualifier": "1.0",
+  "path": "article",
+  "data": [
+    {
+      "IsVisibleOnTop": True,
+      "Resposta": article['message'],
+      "Tags": [],
+      "categories": [
+        {
+          "departamentId": "1f0cf10b-f3e4-462e-88fe-61a461385d4b",
+          "knowledgeBaseId": "768dd089-7fcf-4fe0-bd50-9ffa400d6220",
+          "text": article['categoryName'],
+          "activeIcon": None,
+          "inactiveIcon": None,
+          "iconType": "image",
+          "order": 2,
+          "display": True,
+          "id": article['categoryId'],
+          "active": True
+        }
+      ],
+      "Topics": [],
+      "Pergunta": article['title'],
+      "integrations": [],
+      "UUidArtigo": "00000000-0000-0000-0000-000000000000",
+      "UUidDepartamento": "1f0cf10b-f3e4-462e-88fe-61a461385d4b",
+      "UUidSite": "fe0f60c2-26e6-4bd6-848e-ce25271a8a5b",
+      "active": True
+    }
+  ],
+  "method": "POST"
+})
+   headers = {
+  'Authorization': 'DT-Fenix-Token ' + fenixToken['token'],
+  'Content-Type': 'application/json'
+}
+   response = rq.request("POST", url, headers=headers, data=payload)
+   if response.status_code == 200:
+      return "Artigo criado.", 200
+   else:
+      return "Erro ao criar artigo.", response.status_code
+   
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=8080, debug=True)
