@@ -37,5 +37,26 @@ def getArticles():
   articles = json.dumps(articles)
   return articles
 
+@app.route('/categories')
+def getCategories():
+   categories = []
+   url = "https://faq.directtalk.com.br/1.0/api/category/department/?id=1f0cf10b-f3e4-462e-88fe-61a461385d4b"
+   payload = {}
+   headers = {
+  'authority': 'faq.directtalk.com.br',
+  'accept': 'application/json, text/plain, */*'
+  }
+   response = rq.request("GET", url, headers=headers, data=payload)
+   response = response.json()
+   for i in range(len(response)):
+      category = {
+         "id": response[i]['id'],
+         "name": response[i]['text']
+      }
+      categories.append(category)
+   categories = json.dumps(categories)
+   return categories
+   
+
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=8080, debug=True)
