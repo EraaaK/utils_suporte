@@ -12,7 +12,6 @@
   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
@@ -35,7 +34,7 @@
                 </svg>
               </li>
               <li class="menu-item sub-menu">
-                <a href="#">
+                <a>
                   <span class="menu-icon">
                     <i class="ri-book-2-fill"></i>
                   </span>
@@ -44,48 +43,48 @@
                 <div class="sub-menu-list">
                   <ul>
                     <li class="menu-item">
-                      <a href="#">
+                      <a >
                         <span class="menu-title">Hi Inbox</span>
                       </a>
                     </li>
                     <li class="menu-item">
-                      <a href="#">
+                      <a >
                         <span class="menu-title">Hi Social</span>
                       </a>
                     </li>
                     <li class="menu-item">
-                      <a href="#">
+                      <a >
                         <span class="menu-title">Hi Flow</span>
                       </a>
                     </li>
                     <li class="menu-item sub-menu">
-                      <a href="#">
+                      <a >
                         <span class="menu-title">DirectTalk</span>
                       </a>
                       <div class="sub-menu-list">
                         <ul>
                           <li class="menu-item">
-                            <a href="#">
+                            <a >
                               <span class="menu-title">Hi Bot</span>
                             </a>
                           </li>
                           <li class="menu-item">
-                            <a href="#">
+                            <a >
                               <span class="menu-title">Hi Chat</span>
                             </a>
                           </li>
                           <li class="menu-item">
-                            <a href="#">
+                            <a >
                               <span class="menu-title">Hi FAQ</span>
                             </a>
                           </li>
                           <li class="menu-item">
-                            <a href="#">
+                            <a >
                               <span class="menu-title">Hi Phone</span>
                             </a>
                           </li>
                           <li class="menu-item">
-                            <a href="#">
+                            <a >
                               <span class="menu-title">Hi Mail</span>
                             </a>
                           </li>
@@ -93,18 +92,18 @@
                       </div>
                     </li>
                     <li class="menu-item sub-menu">
-                      <a href="#">
+                      <a >
                         <span class="menu-title">YourViews</span>
                       </a>
                       <div class="sub-menu-list">
                         <ul>
                           <li class="menu-item">
-                            <a href="#">
+                            <a >
                               <span class="menu-title">Reviews</span>
                             </a>
                           </li>
                           <li class="menu-item">
-                            <a href="#">
+                            <a >
                               <span class="menu-title">Voices</span>
                             </a>
                           </li>
@@ -117,26 +116,27 @@
               </li>
               <li class="menu-header" style="padding-top: 20px"><span> AÇÕES </span></li>
               <li class="menu-item">
-                <a href="#">
+                <a >
                   <span class="menu-icon">
                     <i class="ri-folder-image-fill"></i>
                   </span>
                   <span class="menu-title">HiFiles</span>
+
+                </a>
+              </li>
+              <li class="menu-item">
+                <a >
+                  <span class="menu-icon">
+                    <i class="ri-android-fill"></i>
+                  </span>
+                  <span class="menu-title">Tenants</span>
                   <span class="menu-suffix">
                     <span class="badge secondary">Beta</span>
                   </span>
                 </a>
               </li>
               <li class="menu-item">
-                <a href="#">
-                  <span class="menu-icon">
-                    <i class="ri-android-fill"></i>
-                  </span>
-                  <span class="menu-title">Tenants</span>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="#">
+                <a >
                   <span class="menu-icon">
                     <i class="ri-calendar-schedule-fill"></i>
                   </span>
@@ -144,7 +144,7 @@
                 </a>
               </li>
               <li class="menu-item">
-                <a href="#">
+                <a >
                   <span class="menu-icon">
                     <i class="ri-calendar-schedule-fill"></i>
                   </span>
@@ -181,6 +181,12 @@
           <div class="voices">
             </div>
         </div>
+        <div class="files">
+
+        </div>
+        <div class="tenants">
+            
+        </div>
       </main>
       <div class="overlay"></div>
     </div>
@@ -205,7 +211,7 @@
               <div class="modal-body text-center">
                 <div class="formbold-main-wrapper">
                   <div class="formbold-form-wrapper">
-                    <form id="newArticleForm" method="POST" action="http://127.0.0.1:8080/newarticle">
+                    <form autocomplete="off" id="newArticleForm" method="POST" action="http://127.0.0.1:8080/newarticle">
                         <div class="formbold-input-flex">
                           <select id="categorySelect" class="form-select" aria-label="categorySelect">
                             <option selected>Selecione uma categoria</option>
@@ -214,7 +220,7 @@
                         <div class="formbold-input-flex">
                           <div>
                               <input type="text"name="articleTitle" id="articleTitle" placeholder="Ex: Como configurar novas contas de e-mail?" class="formbold-form-input"/>
-                              <label for="articleTitle" class="formbold-form-label"> Título </label>
+                              <label autocomplete="off" for="articleTitle" class="formbold-form-label"> Título </label>
                           </div>
                         </div>
                         <div class="formbold-textarea">
@@ -249,5 +255,6 @@
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.6/js/bootstrap-select.min.js"></script>
 </body>
 </html>

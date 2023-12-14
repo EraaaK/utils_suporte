@@ -2,6 +2,8 @@ var menuTitles = document.querySelectorAll('.menu-item > a > .menu-title');
 var CategorySelect = document.getElementById('categorySelect');
 var articles = undefined;
 var categories = undefined;
+var clientsName = [];
+  
 
 $(function () {
   $('.newArticleButton').tooltip({
@@ -13,7 +15,9 @@ $(function () {
    });
   $(".newArticleButton").click(function() {
     $('#newArticleModal').modal('show');
-  });  
+  });
+  $('.sidebar-content a').css('cursor', 'pointer');
+  alexandriaData() 
 })
 
 menuTitles.forEach(function (menuTitle) {
@@ -288,4 +292,28 @@ function renderArticles(category) {
   toastBootstrap.show()
  });
  
- 
+function alexandriaData() {
+  var settings = {
+    "url": "https://app.hiplatform.com/platform/whatsappconnect/1.0/api/management/configuration",
+    "method": "GET",
+    "timeout": 0,
+    "headers": {
+      "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+      "authorization": "Basic ZHRzMXdpbGxpYW0ud2VpZGdlbmFuZDozNDY2MTE3V3c="
+    },
+  };
+  
+  $.ajax(settings).done(function (response) {
+    for (var i = 0; i < response.data.length; i++) {
+      clientsName.push(response.data[i].tenant.name);
+    }
+    clientsName.forEach(function(client) {
+      console.log(client)
+      $('#clientsSelect').append($('<option>', {
+      value: client,
+      text: client
+      }));
+     });
+  });
+}
+
