@@ -317,7 +317,9 @@ function showAccountData(selectedClient) {
       $("#accountPlatform").html("<strong>Plataforma </strong>" + clientDTData[0][i].platId);
       $("#accountPrefix").html("<strong>Prefixo </strong>" + clientDTData[0][i].mnemonic);
       $("#accountName").html(clientDTData[0][i].name);
-      fullClientsData.forEach(element => {
+      var cookieData = localStorage.getItem('alexandriaData');
+      var cookieJson = JSON.parse(cookieData);
+      cookieJson.forEach(element => {
         if (element.tenant.name == clientDTData[0][i].name) {
           filteredAlexandriaDataByTenants.push(element)
         }
