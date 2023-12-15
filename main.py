@@ -1,4 +1,4 @@
-from flask import Flask, make_response, request, render_template, send_from_directory, jsonify
+from flask import Flask, make_response, request, render_template, send_from_directory, jsonify, Response
 from controller import services as function
 import requests as rq
 import json
@@ -107,6 +107,29 @@ def newArticle():
       return "Artigo criado.", 200
    else:
       return "Erro ao criar artigo.", response.status_code
+   
+@app.route('/tenants')
+def tenantsFilter():
+  tenantsIndex = request.args.get('filter')
+  url = "https://tenant.directtalk.com.br/1.0/tenants?filter=" + tenantsIndex
+  payload = {}
+  headers = {
+    'authorization': 'Basic ZHRzMXdpbGxpYW0ud2VpZGdlbmFuZDozNDY2MTE3V3c='
+  }
+  response = rq.request("GET", url, headers=headers, data=payload)
+  data = json.loads(response.content)
+  if response.status_code == 200:
+    return Response(json.dumps({
+      'Status': 'OK',
+      'Data': data
+    }),
+                    status=200,
+                    content_type='application/json')
+  else:
+    return Response(json.dumps(
+      {'Status': 'Erro na requisição de busca de dados'}),
+                    status=response.status_code,
+                    content_type='application/json')
    
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=8080, debug=True)

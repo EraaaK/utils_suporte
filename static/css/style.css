@@ -518,7 +518,7 @@ a {
 }
 
 .content, layout{
-  background-color: #a4baea;
+  background-color: #f8f9fa !important;
 }
 
 #categorySelect, #articleContent {
@@ -648,11 +648,13 @@ a {
     }
   
   #search-box {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      cursor: pointer;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-left: 25%;
   }
   
   .results-list {
@@ -665,7 +667,7 @@ a {
       list-style: none;
       padding: 0;
       margin: 0;
-      background-color: #ccc;
+      background-color: #ffffff;
   }
   
   .results-list li {
@@ -677,3 +679,59 @@ a {
       background-color: #f0f0f0;
   }
   
+  .cards {
+    position: fixed;
+    top: 25%;
+    width: 100%;
+    display: inline-flex;
+    gap: 5%;
+  }
+  
+  .cards .red {
+    background-color: #007e9e;
+  }
+  
+  .cards .blue {
+    background-color: #0062ff;
+  }
+  
+  .cards .green {
+    background-color: #18cd5e;
+  }
+  
+  .cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 10rem;
+    width: 20rem;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 400ms;
+  }
+  
+  .cards .card p.tip {
+    font-size: 1em;
+    font-weight: 700;
+  }
+  
+  .cards .card p.second-text {
+    font-size: .7em;
+  }
+  
+  .cards .card:hover {
+    transform: scale(1.2, 1.2);
+  }
+  
+  .cards:hover > .card:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+  }
+
+#searchingIcon {
+  background: transparent;
+  shape-rendering: auto;
+} 

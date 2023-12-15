@@ -3,10 +3,19 @@ var CategorySelect = document.getElementById('categorySelect');
 var articles = undefined;
 var categories = undefined;
 var selectedClient = undefined;
+var fullClientsData = undefined;
 var clientsName = [];
-
+let typingTimer;
 
 $(function () {
+  $('#search-box').on('input', function() {
+    clearTimeout(typingTimer);
+    const userInput = $(this).val();
+    if (userInput) {
+      tenantsSearch(userInput)
+    }
+});
+
   $('.tenants').hide();
   $('.newArticleButton').tooltip({
       placement: 'right'
@@ -235,16 +244,28 @@ function alexandriaData() {
   };
   
   $.ajax(settings).done(function (response) {
-    for (var i = 0; i < response.data.length; i++) {
-      clientsName.push(response.data[i].tenant.name);
-    }
-    clientsName.forEach(function(client) {
-      $('#clientsSelect').append($('<option>', {
-      value: client,
-      text: client
-      }));
-     });
+     fullClientsData = response.data
   });
+}
+
+function tenantsSearch(userInput){
+  typingTimer = setTimeout(function() {
+    $('#loadingModal').modal('show');
+    $.ajax({
+      url: "http://127.0.0.1:8080/tenants?filter=" + userInput,
+      type: 'GET',
+      success: function(data) {
+          for (var i = 0; i < data.Data.length; i++){
+            clientsName.push(data.Data[i].name);
+          }
+          updateResults(userInput)
+          $('#loadingModal').modal('hide');
+      },
+      error: function(error) {
+          console.error("Erro na requisição:", error);
+      }
+  });
+  }, 1500);
 }
 
 function updateResults(searchTerm) {
@@ -267,6 +288,7 @@ function updateResults(searchTerm) {
 $('#search-box').on('input click', function() {
   var searchTerm = $(this).val();
   updateResults(searchTerm);
+  $('#results-list').empty();
 });
 
 $(document).on('click', function(e) {
