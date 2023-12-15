@@ -107,10 +107,6 @@ menuTitles.forEach(function (menuTitle) {
                 });
                 break;
             case "Tenants":
-                $('#tenantsLoading').modal('show');
-                setTimeout(function() {
-                  $('#tenantsLoading').modal('hide');
-                  }, 20000);
               showTab(".tenants")
               break;
         }
@@ -251,6 +247,7 @@ function alexandriaData() {
   
   $.ajax(settings).done(function (response) {
      fullClientsData = response.data
+     localStorage.setItem('alexandriaData', JSON.stringify(fullClientsData));
   });
 }
 
@@ -331,3 +328,4 @@ function showAccountData(selectedClient) {
   }
   $('.cards').css('display', 'inline-flex');
 }
+
