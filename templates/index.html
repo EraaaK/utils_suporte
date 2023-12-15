@@ -186,7 +186,7 @@
         </div>
         <div class="tenants">
           <div class="searchContainer">
-              <input type="text" id="search-box" placeholder="Exemplo: Hi Platform">
+              <input type="text" id="search-box" autocomplete="off" placeholder="Exemplo: Hi Platform">
               <ul id="results-list" class="results-list" style="display: block; max-height: 150px; margin-left: 25%; width: 50%;"></ul>
           </div>
           <div class="cards">
@@ -194,27 +194,30 @@
                 <div id="WhatsappIconTitle" class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
                   <i id="whatsappIcon" class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
                 </div>
-                  <p class="tip"></p>
-                  <p class="tip"></p>
+                <div class="cardData">
+                  <p id="wabaNumbers" class="tip"></p>
+                  <p id="hsmTemplates" class="tip"></p>
+                  </div>
               </div>
               <div class="card green">
                 <div id="accountIconTitle" class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
                   <i id="accountIcon" class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
                 </div>
-                <p class="tip">Hover Me</p>
-                <p class="second-text">Lorem Ipsum</p>
+                <div class="cardData">
+                <p id="accountName" class="tip">TESTE</p>
+                <p id="accountPrefix" class="tip"></p>
+                <p id="accountPlatform" class="tip"></p>
+              </div>
             </div>
             <div class="card green">
               <div id="accountIconTitle" class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
                 <i id="accountIcon" class="fa fa-users fa-2x" aria-hidden="true"></i>
               </div>
-              <p class="tip">Hover Me</p>
-              <p class="second-text">Lorem Ipsum</p>
+              <p class="tip"></p>
+              <p class="tip"></p>
           </div>
-          
           </div>
       </div>
-      
       </main>
       <div class="overlay"></div>
     </div>
@@ -265,6 +268,21 @@
           </div>
       </div>
   </div>
+  <div class="modal fade" id="tenantsLoading" tabindex="-1" role="dialog" aria-labelledby="tenantsLoadingLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h4 id="tenantsLoadingLabel">Integrando dados do Alexandria e DT..</h4>
+                <h2 id="tenantsLoadingLabel">Aguarde um momento, em média o Alexandria demora 20 segundos para responder</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255); display: block; shape-rendering: auto;" width="94px" height="94px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                  <circle cx="50" cy="50" fill="none" stroke="#382d9a" stroke-width="4" r="16" stroke-dasharray="75.39822368615503 27.132741228718345">
+                    <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="0.36764705882352944s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+                  </circle>
+                  </svg>
+            </div>
+        </div>
+    </div>
+</div>
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">

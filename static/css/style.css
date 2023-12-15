@@ -683,7 +683,7 @@ a {
     position: fixed;
     top: 40%;
     width: 100%;
-    display: inline-flex;
+    display: none;
     gap: 5%;
   }
   
@@ -700,15 +700,15 @@ a {
     text-align: center;
     height: 10rem;
     width: 20rem;
-    border-radius: 10px;
+    border-radius: 0.75rem;
     color: white;
     cursor: pointer;
     transition: 400ms;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(64, 64, 64, 0.4) !important;
   }
   
   .cards .card p.tip {
     font-size: 1em;
-    font-weight: 700;
   }
   
   .cards .card p.second-text {
@@ -757,4 +757,19 @@ a {
 
 #whatsappIcon, #accountIcon  {
   margin-top: 25%;
+}
+
+.cardData {
+  margin-top: 30px;
+  align-self: self-start;
+  margin-left: 15px;
+  text-align-last: justify;
+}
+
+#accountName{
+  position: absolute;
+    margin-left: 25%;
+    margin-top: -13%;
+    font-size: x-small;
+    font-weight: bold;
 }

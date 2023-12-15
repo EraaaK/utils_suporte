@@ -4,6 +4,8 @@ var articles = undefined;
 var categories = undefined;
 var selectedClient = undefined;
 var fullClientsData = undefined;
+var filteredAlexandriaDataByTenants = [];
+var clientDTData = [];
 var clientsName = [];
 let typingTimer;
 
@@ -105,6 +107,10 @@ menuTitles.forEach(function (menuTitle) {
                 });
                 break;
             case "Tenants":
+                $('#tenantsLoading').modal('show');
+                setTimeout(function() {
+                  $('#tenantsLoading').modal('hide');
+                  }, 20000);
               showTab(".tenants")
               break;
         }
@@ -249,6 +255,8 @@ function alexandriaData() {
 }
 
 function tenantsSearch(userInput){
+  clientDTData = [];
+  clientsName = [];
   typingTimer = setTimeout(function() {
     $('#loadingModal').modal('show');
     $.ajax({
@@ -258,6 +266,7 @@ function tenantsSearch(userInput){
           for (var i = 0; i < data.Data.length; i++){
             clientsName.push(data.Data[i].name);
           }
+          clientDTData.push(data.Data)
           updateResults(userInput)
           $('#loadingModal').modal('hide');
       },
@@ -265,7 +274,7 @@ function tenantsSearch(userInput){
           console.error("Erro na requisição:", error);
       }
   });
-  }, 1500);
+  }, 1000);
 }
 
 function updateResults(searchTerm) {
@@ -301,4 +310,24 @@ $('#results-list').on('click', 'li', function() {
   selectedClient = $(this).text();
   $('#search-box').val(selectedClient);
   $('#results-list').hide();
+  showAccountData(selectedClient)
 });
+
+function showAccountData(selectedClient) {
+  filteredAlexandriaDataByTenants = []
+  for (var i = 0; i < clientDTData[0].length; i++){
+    if (clientDTData[0][i].name == selectedClient){
+      $("#accountPlatform").html("<strong>Plataforma </strong>" + clientDTData[0][i].platId);
+      $("#accountPrefix").html("<strong>Prefixo </strong>" + clientDTData[0][i].mnemonic);
+      $("#accountName").html(clientDTData[0][i].name);
+      fullClientsData.forEach(element => {
+        if (element.tenant.name == clientDTData[0][i].name) {
+          filteredAlexandriaDataByTenants.push(element)
+        }
+      });
+      $("#wabaNumbers").html("<strong>Números contratados: </strong>" + filteredAlexandriaDataByTenants.length);
+      $("#hsmTemplates").html("<strong>HSM's cadastrados:  </strong>" + "VAZIO");
+    } 
+  }
+  $('.cards').css('display', 'inline-flex');
+}
