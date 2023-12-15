@@ -2,10 +2,12 @@ var menuTitles = document.querySelectorAll('.menu-item > a > .menu-title');
 var CategorySelect = document.getElementById('categorySelect');
 var articles = undefined;
 var categories = undefined;
+var selectedClient = undefined;
 var clientsName = [];
-  
+
 
 $(function () {
+  $('.tenants').hide();
   $('.newArticleButton').tooltip({
       placement: 'right'
   })
@@ -24,168 +26,98 @@ menuTitles.forEach(function (menuTitle) {
     menuTitle.addEventListener('click', function () {
         switch (this.innerText) {
             case "Hi Inbox":
-              $('.inbox').show();
-              $('.social').hide();
-              $('.flow').hide();
-              $('.bot').hide();
-              $('.chat').hide();
-              $('.faq').hide();
-              $('.phone').hide();
-              $('.mail').hide();
-              $('.reviews').hide();
-              $('.voices').hide();
+                showTab(".inbox")
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Hi Social":
-              $('.inbox').hide();
-              $('.social').show();
-              $('.flow').hide();
-              $('.bot').hide();
-              $('.chat').hide();
-              $('.faq').hide();
-              $('.phone').hide();
-              $('.mail').hide();
-              $('.reviews').hide();
-              $('.voices').hide();
+                showTab(".social")
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Hi Flow":
-              $('.inbox').hide();
-              $('.social').hide();
-              $('.flow').show();
-              $('.bot').hide();
-              $('.chat').hide();
-              $('.faq').hide();
-              $('.phone').hide();
-              $('.mail').hide();
-              $('.reviews').hide();
-              $('.voices').hide();
+                showTab(".flow")
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Hi Bot":
-              $('.inbox').hide();
-              $('.social').hide();
-              $('.flow').hide();
-              $('.bot').show();
-              $('.chat').hide();
-              $('.faq').hide();
-              $('.phone').hide();
-              $('.mail').hide();
-              $('.reviews').hide();
-              $('.voices').hide();
+                showTab(".bot")
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Hi Chat":
-              $('.inbox').hide();
-              $('.social').hide();
-              $('.flow').hide();
-              $('.bot').hide();
-              $('.chat').show();
-              $('.faq').hide();
-              $('.phone').hide();
-              $('.mail').hide();
-              $('.reviews').hide();
-              $('.voices').hide();
+                showTab(".chat")
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Hi FAQ":
-              $('.inbox').hide();
-              $('.social').hide();
-              $('.flow').hide();
-              $('.bot').hide();
-              $('.chat').hide();
-              $('.faq').show();
-              $('.phone').hide();
-              $('.mail').hide();
-              $('.reviews').hide();
-              $('.voices').hide();
+                showTab(".faq")
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Hi Phone":
-              $('.inbox').hide();
-              $('.social').hide();
-              $('.flow').hide();
-              $('.bot').hide();
-              $('.chat').hide();
-              $('.faq').hide();
-              $('.phone').show();
-              $('.mail').hide();
-              $('.reviews').hide();
-              $('.voices').hide();
+                showTab(".phone")
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Hi Mail":
-              $('.inbox').hide();
-              $('.social').hide();
-              $('.flow').hide();
-              $('.bot').hide();
-              $('.chat').hide();
-              $('.faq').hide();
-              $('.phone').hide();
-              $('.mail').show();
-              $('.reviews').hide();
-              $('.voices').hide();
+                showTab(".mail")
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Reviews":
-              $('.inbox').hide();
-              $('.social').hide();
-              $('.flow').hide();
-              $('.bot').hide();
-              $('.chat').hide();
-              $('.faq').hide();
-              $('.phone').hide();
-              $('.mail').hide();
-              $('.reviews').show();
-              $('.voices').hide();
+                showTab(".reviews")
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
             case "Voices":
-              $('.inbox').hide();
-              $('.social').hide();
-              $('.flow').hide();
-              $('.bot').hide();
-              $('.chat').hide();
-              $('.faq').hide();
-              $('.phone').hide();
-              $('.mail').hide();
-              $('.reviews').hide();
-              $('.voices').show();
+                showTab(".voices");
                 getArticles(this.innerText)
                 .then(res => {
                 renderArticles(this.innerText);
                 });
                 break;
+            case "Tenants":
+              showTab(".tenants")
+              break;
         }
     });
 });
+
+function showTab(classname){
+  $('.inbox').hide();
+  $('.social').hide();
+  $('.flow').hide();
+  $('.bot').hide();
+  $('.chat').hide();
+  $('.faq').hide();
+  $('.phone').hide();
+  $('.mail').hide();
+  $('.reviews').hide();
+  $('.voices').hide();
+  $('.tenants').hide();
+
+  // only selected div
+  $(classname).show();
+}
 
 async function getArticles(categoryName) {
   $('#loadingModal').modal('show');
@@ -278,7 +210,6 @@ function renderArticles(category) {
     "title": document.getElementById('articleTitle').value,
     "message": document.getElementById('message').value
   };
-  console.log(newArticle);
   $.ajax({
     type: "POST",
     url: $(this).attr('action'),
@@ -308,7 +239,6 @@ function alexandriaData() {
       clientsName.push(response.data[i].tenant.name);
     }
     clientsName.forEach(function(client) {
-      console.log(client)
       $('#clientsSelect').append($('<option>', {
       value: client,
       text: client
@@ -317,3 +247,36 @@ function alexandriaData() {
   });
 }
 
+function updateResults(searchTerm) {
+  $('#results-list').empty();
+  var filteredClients = clientsName.filter(function(client) {
+      return client.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+  filteredClients.forEach(function(client) {
+      $('#results-list').append('<li>' + client + '</li>');
+  });
+  $('#results-list').show();
+  var resultsListHeight = $('#results-list')[0].scrollHeight;
+  if (resultsListHeight > 150) { 
+      $('#results-list').css('max-height', '150px');
+  } else {
+      $('#results-list').css('max-height', resultsListHeight + 'px');
+  }
+}
+
+$('#search-box').on('input click', function() {
+  var searchTerm = $(this).val();
+  updateResults(searchTerm);
+});
+
+$(document).on('click', function(e) {
+  if (!$(e.target).closest('.custom-select').length) {
+      $('#results-list').hide();
+  }
+});
+
+$('#results-list').on('click', 'li', function() {
+  selectedClient = $(this).text();
+  $('#search-box').val(selectedClient);
+  $('#results-list').hide();
+});
