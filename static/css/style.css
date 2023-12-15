@@ -681,23 +681,16 @@ a {
   
   .cards {
     position: fixed;
-    top: 25%;
+    top: 40%;
     width: 100%;
     display: inline-flex;
     gap: 5%;
   }
   
-  .cards .red {
-    background-color: #007e9e;
-  }
-  
-  .cards .blue {
-    background-color: #0062ff;
-  }
-  
   .cards .green {
-    background-color: #18cd5e;
+    background-color: #00ADEE;
   }
+  
   
   .cards .card {
     display: flex;
@@ -735,3 +728,33 @@ a {
   background: transparent;
   shape-rendering: auto;
 } 
+
+#WhatsappIconTitle{
+  border-radius: 0.75rem;
+  width: 64px;
+  height: 64px;
+  background-position: center;
+  background-image: linear-gradient(195deg, #0aff48 0%, #37931d 100%);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(64, 64, 64, 0.4) !important;
+  text-align: center !important;
+  margin-top: -10rem !important;
+  margin-left: -13rem !important;
+  position: absolute !important;
+}
+
+#accountIconTitle{
+  border-radius: 0.75rem;
+  width: 64px;
+  height: 64px;
+  background-position: center;
+  background-image: linear-gradient(195deg, #d0e1d4 0%, #686b68 100%);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(64, 64, 64, 0.4) !important;
+  text-align: center !important;
+  margin-top: -10rem !important;
+  margin-left: -13rem !important;
+  position: absolute !important;
+}
+
+#whatsappIcon, #accountIcon  {
+  margin-top: 25%;
+}
