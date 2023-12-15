@@ -137,7 +137,7 @@ function showTab(classname){
 async function getArticles(categoryName) {
   $('#loadingModal').modal('show');
  const response = await $.ajax({
-   url: "http://127.0.0.1:8080/articles?category=" + categoryName,
+   url: "https://utilssuporte.tn-russo.repl.co/articles?category=" + categoryName,
    type: 'GET',
    dataType: 'json'
  });
@@ -148,7 +148,7 @@ async function getArticles(categoryName) {
 
 async function getCategories() {
  const response = await $.ajax({
-   url: "http://127.0.0.1:8080/categories",
+   url: "https://utilssuporte.tn-russo.repl.co/categories",
    type: 'GET',
    dataType: 'json'
  });
@@ -260,7 +260,7 @@ function tenantsSearch(userInput){
   typingTimer = setTimeout(function() {
     $('#loadingModal').modal('show');
     $.ajax({
-      url: "http://127.0.0.1:8080/tenants?filter=" + userInput,
+      url: "https://utilssuporte.tn-russo.repl.co/tenants?filter=" + userInput,
       type: 'GET',
       success: function(data) {
           for (var i = 0; i < data.Data.length; i++){
