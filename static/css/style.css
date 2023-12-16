@@ -510,7 +510,9 @@ a {
 }
 
 .accordion-button {
-  background-color: #b4eaff !important;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(64, 64, 64, 0.4) !important;
+  background-position: center !important;
+  background-image: linear-gradient(195deg, #786eeb 0%, #d1d4ff 100%) !important;
 }
 
 .accordion-body {
@@ -518,7 +520,7 @@ a {
 }
 
 .content, layout{
-  background-color: #f8f9fa !important;
+  background-image: linear-gradient(195deg, #cdc9ff 0%, #939393 100%) !important;
 }
 
 #categorySelect, #articleContent {
