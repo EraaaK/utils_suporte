@@ -122,7 +122,7 @@ def tenantsFilter():
   url = "https://tenant.directtalk.com.br/1.0/tenants?filter=" + tenantsIndex
   payload = {}
   headers = {
-      'authorization': 'Basic ZHRzMXdpbGxpYW0ud2VpZGdlbmFuZDozNDY2MTE3V3c='
+      'authorization': 'Basic ZHRzMTIxM2NjYTM2LWFjMGEtNGViYS1hODE4LTdkNmMyOTRhMjI1YTp5MTA2aml1a3BiYmR0bjJ3aHQyZA=='
   }
   response = rq.request("GET", url, headers=headers, data=payload)
   data = json.loads(response.content)

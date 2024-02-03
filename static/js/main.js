@@ -133,7 +133,7 @@ function showTab(classname){
 async function getArticles(categoryName) {
   $('#loadingModal').modal('show');
  const response = await $.ajax({
-   url: "https://utilssuporte.tn-russo.repl.co/articles?category=" + categoryName,
+   url: "http://192.168.1.5:8080/articles?category=" + categoryName,
    type: 'GET',
    dataType: 'json'
  });
@@ -144,7 +144,7 @@ async function getArticles(categoryName) {
 
 async function getCategories() {
  const response = await $.ajax({
-   url: "https://utilssuporte.tn-russo.repl.co/categories",
+   url: "http://192.168.1.5:8080/categories",
    type: 'GET',
    dataType: 'json'
  });
@@ -241,7 +241,7 @@ function alexandriaData() {
     "timeout": 0,
     "headers": {
       "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
-      "authorization": "Basic ZHRzMXdpbGxpYW0ud2VpZGdlbmFuZDozNDY2MTE3V3c="
+      "authorization": "Basic ZHRzMTIxM2NjYTM2LWFjMGEtNGViYS1hODE4LTdkNmMyOTRhMjI1YTp5MTA2aml1a3BiYmR0bjJ3aHQyZA=="
     },
   };
   
@@ -257,7 +257,7 @@ function tenantsSearch(userInput){
   typingTimer = setTimeout(function() {
     $('#loadingModal').modal('show');
     $.ajax({
-      url: "https://utilssuporte.tn-russo.repl.co/tenants?filter=" + userInput,
+      url: "http://192.168.1.5:8080/tenants?filter=" + userInput,
       type: 'GET',
       success: function(data) {
           for (var i = 0; i < data.Data.length; i++){
