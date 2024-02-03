@@ -133,7 +133,7 @@ function showTab(classname){
 async function getArticles(categoryName) {
   $('#loadingModal').modal('show');
  const response = await $.ajax({
-   url: "http://192.168.1.5:8080/articles?category=" + categoryName,
+   url: "https://hi-support-hub.onrender.com/articles?category=" + categoryName,
    type: 'GET',
    dataType: 'json'
  });
@@ -144,7 +144,7 @@ async function getArticles(categoryName) {
 
 async function getCategories() {
  const response = await $.ajax({
-   url: "http://192.168.1.5:8080/categories",
+   url: "https://hi-support-hub.onrender.com/categories",
    type: 'GET',
    dataType: 'json'
  });
@@ -257,7 +257,7 @@ function tenantsSearch(userInput){
   typingTimer = setTimeout(function() {
     $('#loadingModal').modal('show');
     $.ajax({
-      url: "http://192.168.1.5:8080/tenants?filter=" + userInput,
+      url: "https://hi-support-hub.onrender.com/tenants?filter=" + userInput,
       type: 'GET',
       success: function(data) {
           for (var i = 0; i < data.Data.length; i++){
