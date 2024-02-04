@@ -1,23 +1,22 @@
 from flask import Flask, make_response, request, render_template, redirect, send_from_directory, jsonify, Response, url_for
 from controller import services as function
+from flask_cors import CORS
 import requests as rq
 import json
 import os
 
 app = Flask(__name__, static_url_path='/static')
+CORS(app, origins='http://192.168.1.5:8080')
 
 global categories
-
 
 @app.route('/')
 def main():
   return redirect(url_for('homepage'))
 
-
 @app.route('/homepage')
 def homepage():
   return render_template('index.html')
-
 
 @app.route('/articles')
 def getArticles():
@@ -40,7 +39,6 @@ def getArticles():
   articles = json.dumps(articles)
   return articles
 
-
 @app.route('/categories')
 def getCategories():
   categories = []
@@ -57,7 +55,6 @@ def getCategories():
     categories.append(category)
   categories = json.dumps(categories)
   return categories
-
 
 @app.route("/newarticle", methods=['POST'])
 def newArticle():
@@ -115,7 +112,6 @@ def newArticle():
   else:
     return "Erro ao criar artigo.", response.status_code
 
-
 @app.route('/tenants')
 def tenantsFilter():
   tenantsIndex = request.args.get('filter')
@@ -138,7 +134,6 @@ def tenantsFilter():
         {'Status': 'Erro na requisição de busca de dados'}),
                     status=response.status_code,
                     content_type='application/json')
-
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=8080, debug=True)
